@@ -14,3 +14,6 @@ the different pages.
 
 As usual, I included screenshots with my files so how the code looks running can be seen by those who aren't interested in running it
 themselves. 
+
+Update: 10/26/19: Added in a couple of fixes for the Shooting Gallery minigame, including better bounds for the targets and stopping
+the creation of more targets after the game ends.
