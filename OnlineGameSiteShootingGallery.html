@@ -155,7 +155,7 @@
 			}
 			
 			#shootingZone {
-				background-color: #cccccc;
+				background-color: #e6ffff;
 				border: 2px solid #737373;
 				width:600px;
 				height:550px;
@@ -194,7 +194,7 @@
 				width: 50px;
 				background-color: #0066cc;
 				border-radius: 50%;
-				position:relative;
+				position: absolute;
 			}
 			
 			#specialTarget {
@@ -202,7 +202,7 @@
 				width: 100px;
 				background-color: #ffff4d;
 				border-radius: 50%;
-				position:relative;
+				position: absolute;
 			}
 			
 			#badTarget {
@@ -210,7 +210,13 @@
 				width: 50px;
 				background-color: #ff3300;
 				border-radius: 50%;
-				position:relative;
+				position:absolute;
+			}
+			
+			#foot {
+				width: 1000px;
+				height: 300px;
+				float: left;
 			}
 		
 		</style>
@@ -266,6 +272,7 @@
 						
 						<div id="badTarget"></div>
 						
+						
 					</div>
 					
 					<div id="additionalInfo">
@@ -285,11 +292,18 @@
 				
 					<h4>Instructions</h4>
 					
-					<p>	Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah</p>
+					<p>	Shooting gallery is a simple game where your objective is to get as many points as you can within the 30 second timelimit.
+						There are 3 types of targets: regular blue targets that are worth 5 points, yellow bonus targets that are worth 25 points,
+						and red penalty targets that subtract 10 points (careful not to hit those!). Try your best to get a highscore!</p>
 					
 					<h4>About</h4>
 					
-					<p>	Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah</p>
+					<p>	So far, this has been the trickiest addition to the Smug Bug Arcade, however it's in its complete form (for now).
+						Various issues cropped up in making this one, such as the targets bouncing around when others spawned (solved by
+						using absolute positioning rather than relative) and targets spawning for a few seconds after the timer ended
+						(solved by putting a display: none command in the creation function of all places). Over all, it's certainly the
+						most interesting minigame included so far, though perhaps I might go back and add in an accuracy rating or something
+						to that effect.</p>
 					
 				</div>
 			
@@ -299,7 +313,7 @@
 			
 				<h3>Statistics</h3>
 				
-				<p id="highScore">High Score: 0</p>
+				<p id="highScore">High Score: 200</p>
 				
 				<p id="gamesPlayed">Number of Games Played: 0</p>
 				
@@ -311,8 +325,10 @@
 		
 		<div class="clear"></div>
 		
+		<div id="foot"></div>
+		
 		<script type="text/javascript">
-			var highScore = 0;
+			var highScore = 200;
 			var totalGames = 0;
 			var totalScore = 0;
 			var timeLength = 30;
@@ -336,66 +352,74 @@
 			}
 			
 			function createRegularTarget() {
-			
-				var topMove = Math.random() * 425;
 				
-				var leftMove = Math.random() * 400;
+				if(!gameOver) {
+					var topMove = Math.random() * 445 + 180;
+					
+					var leftMove = Math.random() * 470 + 180;
+					
+					var size = (Math.random() * 100) + 25;
+					
+					document.getElementById("regTarget").style.top = topMove + "px";
+					
+					document.getElementById("regTarget").style.left = leftMove + "px";
+					
+					document.getElementById("regTarget").style.width = size + "px";
+					
+					document.getElementById("regTarget").style.height = size + "px";
+					
+					document.getElementById("regTarget").style.display = "block";
 				
-				var size = (Math.random() * 100) + 25;
-				
-				document.getElementById("regTarget").style.top = topMove + "px";
-				
-				document.getElementById("regTarget").style.left = leftMove + "px";
-				
-				document.getElementById("regTarget").style.width = size + "px";
-				
-				document.getElementById("regTarget").style.height = size + "px";
-				
-				document.getElementById("regTarget").style.display = "block";
+				}
 				
 			}
 			
 			function createBonusTarget() {
 			
-				var topMove = Math.random() * 500;
-				
-				var leftMove = Math.random() * 430;
-				
-				var size = (Math.random() * 45) + 25;
-				
-				document.getElementById("specialTarget").style.top = topMove + "px";
-				
-				document.getElementById("specialTarget").style.left = leftMove + "px";
-				
-				document.getElementById("specialTarget").style.width = size + "px";
-				
-				document.getElementById("specialTarget").style.height = size + "px";
-				
-				document.getElementById("specialTarget").style.display = "block";
-				
-				setTimeout(bonusVanish, (Math.random() * 500 + 500))
+				if(!gameOver) {
+					var topMove = Math.random() * 445 + 180;
+					
+					var leftMove = Math.random() * 430 + 175;
+					
+					var size = (Math.random() * 45) + 25;
+					
+					document.getElementById("specialTarget").style.top = topMove + "px";
+					
+					document.getElementById("specialTarget").style.left = leftMove + "px";
+					
+					document.getElementById("specialTarget").style.width = size + "px";
+					
+					document.getElementById("specialTarget").style.height = size + "px";
+					
+					document.getElementById("specialTarget").style.display = "block";
+					
+					setTimeout(bonusVanish, (Math.random() * 500 + 500))
+				}
 				
 			}
 			
 			function createPenaltyTarget() {
 			
-				var topMove = Math.random() * 425;
-				
-				var leftMove = Math.random() * 400;
-				
-				var size = (Math.random() * 100) + 25;
-				
-				document.getElementById("badTarget").style.top = topMove + "px";
-				
-				document.getElementById("badTarget").style.left = leftMove + "px";
-				
-				document.getElementById("badTarget").style.width = size + "px";
-				
-				document.getElementById("badTarget").style.height = size + "px";
-				
-				document.getElementById("badTarget").style.display = "block";
-				
-				setTimeout(penaltyVanish, (Math.random() * 2000 + 1000))
+				if(!gameOver) {
+			
+					var topMove = Math.random() * 445 + 180;
+					
+					var leftMove = Math.random() * 430 + 175;
+					
+					var size = (Math.random() * 100) + 25;
+					
+					document.getElementById("badTarget").style.top = topMove + "px";
+					
+					document.getElementById("badTarget").style.left = leftMove + "px";
+					
+					document.getElementById("badTarget").style.width = size + "px";
+					
+					document.getElementById("badTarget").style.height = size + "px";
+					
+					document.getElementById("badTarget").style.display = "block";
+					
+					setTimeout(penaltyVanish, (Math.random() * 2000 + 1000))
+				}
 				
 			}
 			
