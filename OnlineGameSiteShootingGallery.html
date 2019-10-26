@@ -1,0 +1,510 @@
+<html>
+	<head>
+		<title>Smug Bug Arcade</title>
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		
+		<style type="text/css">
+		
+			body {
+				margin: 0;
+				padding 0;
+				font-family: Helvetica, Arial, sans-serif;
+			
+			}
+			
+			#topBar {
+				width: 1000px;
+				margin: 0 auto;
+				background-color: #3399ff;
+				height: 50px;
+			
+			}
+			
+			#logo {
+			
+				height: 50px;
+				float: left;
+			
+			}
+			
+			.clear {
+				
+				clear:both;
+			
+			}
+			
+			.topSegment {
+				float: left;
+				border-left: 1px #595959 solid;
+				height: 50px;
+			
+			}
+			
+			.topMenu {
+				
+				font-weight: bold;
+				padding: 16px 20px 16px 20px;
+				height: 18px;
+			
+			}
+			
+			#signinImg {
+				float: left;
+			
+			}
+			
+			#signinTxt {
+			
+				font-weight: bold;
+				position:relative;
+				top: 16px;
+				padding-right: 30px;
+			
+			}
+			
+			#titleBanner {
+			border-top: 1px #808080 solid;
+			background-color: #0066cc;
+			width: 100%;
+			height: 100px;
+			
+			}
+			
+			#innerBanner {
+			
+				width: 1000px;
+				margin: 0 auto;
+			
+			}
+			
+			
+			h1 {
+				padding: 0;
+				margin: 0;
+				color: white;
+				font-size: 50px;
+				font-weight: normal;
+				padding-top: 20px;
+				
+			
+			}
+			
+			#topBar a {
+				color: black;
+				text-decoration: none;
+				top: 8px;
+			}
+			
+			#topBar a:hover {
+			
+				color:#003380;
+				text-decoration: underline;
+			
+			}
+			
+			#pageContent {
+			
+				width: 1200px;
+				margin: 0 auto;
+			
+			}
+			
+			#gameInfo {
+			
+				float: left;
+				width: 800px;
+				height: 1000px;
+				border-right: 1px solid #d9d9d9;
+				
+			
+			}
+			
+			#statisticsPanel {
+			
+				margin-left: 10px;
+				width: 350px;
+				float: right;
+			
+			
+			}
+			
+			#gameArea {
+				float: left;
+				width: 600px;
+				height: 700px;
+				margin-left: 50px;
+				margin-top: 10px;
+			
+			}
+			
+			#gameDescription {
+				float: left;
+				width: 600px;
+				height: 350px;
+				margin-left: 50px;
+				margin-top: 10px;
+			
+			}
+			
+			h4 {
+			
+				color: #4d4d4d;
+				font-size: 20px;
+			
+			}
+			
+			#shootingZone {
+				background-color: #cccccc;
+				border: 2px solid #737373;
+				width:600px;
+				height:550px;
+				z-index: 1;
+			}
+			
+			#additionalInfo {
+				border: 2px solid #737373;
+				border-radius: 5%;
+				background-color: #809fff;
+				width: 600px;
+				height: 150px;
+			
+			}
+			
+			#scoreTracker {
+				font-weight: normal;
+			}
+			
+			#timer {
+				font-weight: normal;
+			}
+			
+			#start {
+				position: relative;
+				margin-top: -75px;
+				margin-right: 25px;
+				font-size: 125%;
+				font-weight: bold;
+				padding: 5px 15px;
+				float: right;
+			}
+			
+			#regTarget {
+				z-index: 3;
+				width: 50px;
+				background-color: #0066cc;
+				border-radius: 50%;
+				position:relative;
+			}
+			
+			#specialTarget {
+				z-index: 2;
+				width: 100px;
+				background-color: #ffff4d;
+				border-radius: 50%;
+				position:relative;
+			}
+			
+			#badTarget {
+				z-index: 4;
+				width: 50px;
+				background-color: #ff3300;
+				border-radius: 50%;
+				position:relative;
+			}
+		
+		</style>
+	
+	</head>
+	
+	<body>
+	
+		<div id="topBar">
+		
+			<img id="logo" src="sba_logo.png">
+		
+			<a href="OnlineGameSiteTicTacToe.html" class="topSegment  topMenu">Tic-Tac-Toe</a>
+			
+			<a href="OnlineGameSiteShootingGallery.html"  class="topSegment  topMenu">Shooting Gallery</a>
+			
+			<a href="OnlineGameSitePenguinRace.html"  class="topSegment  topMenu">Penguin Race</a>
+			
+			<a href="OnlineGameSiteGuessingGame.html"  class="topSegment  topMenu">Guessing Game</a>
+			
+			<a href="OnlineGameSiteRockPaperScissors.html"  class="topSegment  topMenu">Rock-Paper-Scissors</a>
+			
+			<a href="OnlineGameSiteAbout.html"  class="topSegment  topMenu">About</a>
+			
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div id="titleBanner">
+		
+			<div id="innerBanner">
+			
+				<h1>Shooting Gallery</h1>
+				
+			</div>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div id="pageContent">
+			
+			
+			<div id="gameInfo">
+			
+				<div id="gameArea">
+					
+					<div id="shootingZone">
+						
+						<div id="regTarget"></div>
+						
+						<div id="specialTarget"></div>
+						
+						<div id="badTarget"></div>
+						
+					</div>
+					
+					<div id="additionalInfo">
+					
+						<h3 id="scoreTracker">Score: 0</h3>
+						
+						<h3 id="timer">Time Remaining: 60s</h3>
+						
+						<h3 id="announcer">Step Right Up!</h3>
+						
+						<button id="start">Start</button>
+					</div>
+					
+				</div>
+				
+				<div id="gameDescription">
+				
+					<h4>Instructions</h4>
+					
+					<p>	Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah</p>
+					
+					<h4>About</h4>
+					
+					<p>	Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah Blah blah blah blah blah blah blah</p>
+					
+				</div>
+			
+			</div>
+			
+			<div id="statisticsPanel">
+			
+				<h3>Statistics</h3>
+				
+				<p id="highScore">High Score: 0</p>
+				
+				<p id="gamesPlayed">Number of Games Played: 0</p>
+				
+				<p id="averageScore">Average Score: 0</p>
+
+			</div>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<script type="text/javascript">
+			var highScore = 0;
+			var totalGames = 0;
+			var totalScore = 0;
+			var timeLength = 30;
+			var timer = null;
+			var gameScore = 0;
+			var i = 0;
+			var gameOver = false;
+			
+			document.getElementById("start").onclick = function() {
+				gameOver = false;
+				totalGames++;
+				gameScore = 0;
+				timeLength = 30;
+				
+				document.getElementById("announcer").innerHTML = "Keep going!";
+				createRegularTarget();
+				bonusAppear();
+				penaltyAppear();
+				timer = setInterval(function(){update();}, 1000);
+
+			}
+			
+			function createRegularTarget() {
+			
+				var topMove = Math.random() * 425;
+				
+				var leftMove = Math.random() * 400;
+				
+				var size = (Math.random() * 100) + 25;
+				
+				document.getElementById("regTarget").style.top = topMove + "px";
+				
+				document.getElementById("regTarget").style.left = leftMove + "px";
+				
+				document.getElementById("regTarget").style.width = size + "px";
+				
+				document.getElementById("regTarget").style.height = size + "px";
+				
+				document.getElementById("regTarget").style.display = "block";
+				
+			}
+			
+			function createBonusTarget() {
+			
+				var topMove = Math.random() * 500;
+				
+				var leftMove = Math.random() * 430;
+				
+				var size = (Math.random() * 45) + 25;
+				
+				document.getElementById("specialTarget").style.top = topMove + "px";
+				
+				document.getElementById("specialTarget").style.left = leftMove + "px";
+				
+				document.getElementById("specialTarget").style.width = size + "px";
+				
+				document.getElementById("specialTarget").style.height = size + "px";
+				
+				document.getElementById("specialTarget").style.display = "block";
+				
+				setTimeout(bonusVanish, (Math.random() * 500 + 500))
+				
+			}
+			
+			function createPenaltyTarget() {
+			
+				var topMove = Math.random() * 425;
+				
+				var leftMove = Math.random() * 400;
+				
+				var size = (Math.random() * 100) + 25;
+				
+				document.getElementById("badTarget").style.top = topMove + "px";
+				
+				document.getElementById("badTarget").style.left = leftMove + "px";
+				
+				document.getElementById("badTarget").style.width = size + "px";
+				
+				document.getElementById("badTarget").style.height = size + "px";
+				
+				document.getElementById("badTarget").style.display = "block";
+				
+				setTimeout(penaltyVanish, (Math.random() * 2000 + 1000))
+				
+			}
+			
+			function gameEnd() {
+			
+				clearInterval(timer);
+				document.getElementById("regTarget").style.display = "none";
+				document.getElementById("specialTarget").style.display = "none";
+				document.getElementById("badTarget").style.display = "none";
+				document.getElementById("announcer").innerHTML = "Step right up! The last score was " + gameScore;
+				if(gameScore > highScore){
+					document.getElementById("announcer").innerHTML = "Good job! A new high score of " + gameScore + "!";
+					highScore = gameScore;
+				}
+				else if (gameScore == 0) {
+					document.getElementById("announcer").innerHTML = "You... you got 0 points... oh my... ";
+				}
+			}
+			
+			
+			function update() {
+				timeLength--;
+				document.getElementById("timer").innerHTML = "Time Remaining: " + timeLength + "s";
+				if(timeLength == 0) {
+					gameOver = true;
+					gameEnd();
+				}
+				
+			}
+			
+			document.getElementById("regTarget").onclick = function () {
+			
+				document.getElementById("regTarget").style.display = "none";
+				totalScore += 5;
+				gameScore += 5;
+				updateStats();
+				
+				if(gameOver == false){
+					appearAfterDelay();
+				}
+			
+			}
+			
+			document.getElementById("specialTarget").onclick = function () {
+			
+				document.getElementById("specialTarget").style.display = "none";
+				totalScore += 25;
+				gameScore += 25;
+				updateStats();
+				
+				if(gameOver == false){
+					bonusAppear();
+				}
+			
+			}
+			
+			document.getElementById("badTarget").onclick = function () {
+			
+				document.getElementById("badTarget").style.display = "none";
+				totalScore -= 10;
+				gameScore -= 10;
+				updateStats();
+				
+				if(gameOver == false){
+					penaltyAppear();
+				}
+			
+			}
+			
+			function appearAfterDelay() {
+				setTimeout(createRegularTarget, Math.random() * 1500 + 250);
+				
+			}
+			
+			function bonusAppear() {
+				setTimeout(createBonusTarget, Math.random() * 10000 + 5000);
+				
+			}
+			
+			function bonusVanish() {
+				$("#specialTarget").fadeOut("fast");
+				if(gameOver == false){
+					bonusAppear();
+				}
+			}
+			
+			function penaltyAppear() {
+				setTimeout(createPenaltyTarget, Math.random() * 10000 + 2500);
+			}
+			
+			function penaltyVanish() {
+				$("#badTarget").fadeOut("fast");
+				
+				if(gameOver == false){
+					penaltyAppear();
+				}
+			}
+			
+			function updateStats() {
+				document.getElementById("highScore").innerHTML = "High Score: " + highScore;
+				document.getElementById("gamesPlayed").innerHTML = "Number of Games Played: " + totalGames;
+				if(totalScore > 0){
+					document.getElementById("averageScore").innerHTML = "Average Score: " + ((totalScore/totalGames).toFixed(2));
+				}
+				document.getElementById("scoreTracker").innerHTML = "Score: " + gameScore;
+
+			}
+		</script>
+	
+	</body>
+
+</html>

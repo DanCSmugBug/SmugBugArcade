@@ -1,0 +1,356 @@
+<html>
+	<head>
+		<title>Smug Bug Arcade</title>
+		
+		<style type="text/css">
+		
+			body {
+				margin: 0;
+				padding 0;
+				font-family: Helvetica, Arial, sans-serif;
+			
+			}
+			
+			#topBar {
+				width: 1000px;
+				margin: 0 auto;
+				background-color: #3399ff;
+				height: 50px;
+			
+			}
+			
+			#logo {
+			
+				height: 50px;
+				float: left;
+			
+			}
+			
+			.clear {
+				
+				clear:both;
+			
+			}
+			
+			.topSegment {
+				float: left;
+				border-left: 1px #595959 solid;
+				height: 50px;
+			
+			}
+			
+			.topMenu {
+				
+				font-weight: bold;
+				padding: 16px 20px 16px 20px;
+				height: 18px;
+			
+			}
+			
+			#signinImg {
+				float: left;
+			
+			}
+			
+			#signinTxt {
+			
+				font-weight: bold;
+				position:relative;
+				top: 16px;
+				padding-right: 30px;
+			
+			}
+			
+			#titleBanner {
+			border-top: 1px #808080 solid;
+			background-color: #0066cc;
+			width: 100%;
+			height: 100px;
+			
+			}
+			
+			#innerBanner {
+			
+				width: 1000px;
+				margin: 0 auto;
+			
+			}
+			
+			
+			h1 {
+				padding: 0;
+				margin: 0;
+				color: white;
+				font-size: 50px;
+				font-weight: normal;
+				padding-top: 20px;
+				
+			
+			}
+			
+			#topBar a {
+				color: black;
+				text-decoration: none;
+				top: 8px;
+			}
+			
+			#topBar a:hover {
+			
+				color:#003380;
+				text-decoration: underline;
+			
+			}
+			
+			#pageContent {
+			
+				width: 1200px;
+				margin: 0 auto;
+			
+			}
+			
+			#gameInfo {
+			
+				float: left;
+				width: 800px;
+				height: 1000px;
+				border-right: 1px solid #d9d9d9;
+				
+			
+			}
+			
+			#statisticsPanel {
+			
+				margin-left: 10px;
+				width: 350px;
+				float: right;
+			
+			
+			}
+			
+			#gameArea {
+				float: left;
+				width: 600px;
+				height: 600px;
+				margin-left: 50px;
+				margin-top: 10px;
+			
+			}
+			
+			#gameDescription {
+				float: left;
+				width: 600px;
+				height: 350px;
+				margin-left: 50px;
+				margin-top: 10px;
+			
+			}
+			
+			h4 {
+			
+				color: #4d4d4d;
+				font-size: 20px;
+			
+			}
+			
+			#bugThinker {
+				
+				width: 400px;
+			
+			}
+			
+			#foot {
+				width: 1000px;
+				height: 300px;
+				float: left;
+			}
+		
+		</style>
+	
+	</head>
+	
+	<body>
+	
+		<div id="topBar">
+		
+			<img id="logo" src="sba_logo.png">
+		
+			<a href="OnlineGameSiteTicTacToe.html" class="topSegment  topMenu">Tic-Tac-Toe</a>
+			
+			<a href="OnlineGameSiteShootingGallery.html"  class="topSegment  topMenu">Shooting Gallery</a>
+			
+			<a href="OnlineGameSitePenguinRace.html"  class="topSegment  topMenu">Penguin Race</a>
+			
+			<a href="OnlineGameSiteGuessingGame.html"  class="topSegment  topMenu">Guessing Game</a>
+			
+			<a href="OnlineGameSiteRockPaperScissors.html"  class="topSegment  topMenu">Rock-Paper-Scissors</a>
+			
+			<a href="OnlineGameSiteAbout.html"  class="topSegment  topMenu">About</a>
+			
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div id="titleBanner">
+		
+			<div id="innerBanner">
+			
+				<h1>Guessing Game</h1>
+				
+			</div>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div id="pageContent">
+			
+			
+			<div id="gameInfo">
+			
+				<div id="gameArea">
+					
+					<p id="guesses">Guesses: 5</p>
+					
+					<p id="dialogue">I'm thinking of a number between 1 and 30</p>
+					
+					<p id="hint">Give it a go...</p>
+					
+					<img id="bugThinker" src="thinkingbug.png">
+					
+					<p>
+						<input type="text" id="userGuess"></input>
+						
+						<button id="submit">Submit</button>
+						
+					</p>
+				</div>
+				
+				<div id="gameDescription">
+				
+					<h4>Instructions</h4>
+					
+					<p>	This is a guessing game in which the smug bug has thought of a number between 1 and 30, and your job is to guess it!
+						You have only five guesses, so make them count! When you think of a guess, type it in the text box and hit submit.
+						If you would like to start a new game, hit the New Game button below.</p>
+					
+					<h4>About</h4>
+					
+					<p>	This is a simple guessing game, as many people have played before. This was the first game created for Smug Bug Arcade.
+						It certainly helped get the format of the pages down right, as well as the systems for keeping track of statistics and such. 
+						The logic of the game is fairly simple, relying only on a random number generator and not much else. The code for manipulating
+						the HTML and CSS far outnumbers the actual lines of game logic.</p>
+					
+					<p><button id="newGame">New Game</button></p>
+					
+				</div>
+			
+			</div>
+			
+			<div id="statisticsPanel">
+			
+				<h3>Statistics</h3>
+				
+				<p id="winNum">Wins: 0</p>
+				
+				<p id="loseNum">Losses: 0</p>
+				
+				<p id="winPercent">Win Percentage: 0%</p>
+				
+				<p id="avgGuessNum">Average Number of Guesses: 0</p>
+				
+				
+			</div>
+		
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div id="foot"></div>
+		
+		<script type="text/javascript">
+		
+			var numOfWins = 0;
+			var numOfLosses = 0;
+			var totalGames = 0;
+			var winPercentage = 0.0;
+			var averageNumOfGuesses = 0;
+			var totalNumOfGuesses = 0;
+			var numOfTries = 5;
+			var bugNum = (Math.floor(Math.random() * 30) + 1);
+			
+			document.getElementById("submit").onclick = function() {
+				
+				
+				var guessNum = document.getElementById("userGuess").value;
+				
+				if (guessNum == bugNum) {
+					
+					numOfTries--;
+					document.getElementById("guesses").innerHTML = "Guesses: " + numOfTries;
+					document.getElementById("userGuess").style.display = "none";
+					document.getElementById("submit").style.display = "none";
+					document.getElementById("bugThinker").src = "happybug.png";
+					document.getElementById("dialogue").innerHTML = "Awesome guess.  You got it in " + (5 - numOfTries) + " guesses!";
+					document.getElementById("hint").innerHTML = "We should play again. Hit New Game to do so!";
+					numOfWins++;
+					totalGames++;
+					totalNumOfGuesses++;
+					updateStats();
+				
+				} else if (numOfTries > 1){
+				
+					document.getElementById("dialogue").innerHTML = "Nope, try again.";
+					if (bugNum > guessNum)
+					{
+						document.getElementById("hint").innerHTML = "The number is higher than that, bub.";
+					}
+					else
+					{
+						document.getElementById("hint").innerHTML = "The number is lower than that, bub.";
+					}
+					numOfTries--;
+					totalNumOfGuesses++;
+					document.getElementById("guesses").innerHTML = "Guesses: " + numOfTries;
+				
+				} else {
+					
+					document.getElementById("userGuess").style.display = "none";
+					document.getElementById("submit").style.display = "none";
+					document.getElementById("bugThinker").src = "sadbug.png";
+					document.getElementById("dialogue").innerHTML = "Oh no! You're out of guesses, bud.";
+					document.getElementById("hint").innerHTML = "Let's try it again. Hit New Game to do so!";
+					document.getElementById("guesses").innerHTML = "Guesses: " + numOfTries;
+					numOfLosses++;
+					totalGames++;
+					totalNumOfGuesses++;
+					updateStats();
+				
+				}
+			
+			}
+			
+			document.getElementById("newGame").onclick = function() {
+				document.getElementById("userGuess").style.display = "block";
+				document.getElementById("submit").style.display = "block";
+				document.getElementById("dialogue").innerHTML = "I'm thinking of a number between 1 and 30.";
+				document.getElementById("hint").innerHTML = "Give it a go.";
+				numOfTries = 5;
+				document.getElementById("guesses").innerHTML = "Guesses: " + numOfTries;
+				bugNum = (Math.floor(Math.random() * 30) + 1);
+				document.getElementById("bugThinker").src = "thinkingbug.png";
+				
+			}
+			
+			function updateStats() {
+				document.getElementById("winNum").innerHTML = "Wins: " + numOfWins;
+				document.getElementById("loseNum").innerHTML = "Losses: " + numOfLosses;
+				document.getElementById("winPercent").innerHTML = "Win Percentage: " + ((numOfWins/totalGames) * 100).toFixed(2) + "%";
+				averageNumOfGuesses = totalNumOfGuesses/totalGames;
+				document.getElementById("avgGuessNum").innerHTML = "Average Number of Guesses: " + averageNumOfGuesses.toFixed(2);
+			}
+		
+		</script>
+	
+	</body>
+
+</html>
