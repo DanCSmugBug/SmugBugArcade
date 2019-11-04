@@ -5,7 +5,7 @@ This is a website designed to get used to using JavaScript in a variety of a way
 different ways of interactivity for the user. It still has a ways to go before the site has reached its first stage is completed.
 At the moment the games Rock Paper Scissors, Guessing Game, and Shooting Gallery are all fully functional, complete with statistic
 tracking and full playability. Work still needs to be done to polish up each of these games, but for the most part I'm pleased with how
-they turned out.
+they turned out. The website still runs on internal CSS and JavaScript. Once I complete the project I intend to use external CSS and JavaScript.
 
 As for the future of this project, after polishing up each of those 3 games, I plan adding in Penguin Race, which is a simplified version
 of the C++ game I made (with the added bonus of penguins animated by jQuery) and Tic-Tac-Toe. In addition, a simple About page that offers
